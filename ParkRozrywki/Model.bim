@@ -1632,7 +1632,7 @@
             "expression": "AVERAGE(FaktOdpowiedzi[IntOcenaAtrakcji])"
           },
           {
-            "name": "IloscOcenZPoprzedniegoKwartalu",
+            "name": "IloscOcenZPoprzKwartalu",
             "expression": "CALCULATE([IloscOcen],PREVIOUSQUARTER('DimCzas'[DataFullName]))"
           },
           {
@@ -1640,20 +1640,19 @@
             "expression": "TOTALQTD([IloscOcen],'DimCzas'[DataFullName])"
           },
           {
-            "name": "IloscOcenZPoprzedniegoKwartaluDoQTD",
-            "expression": "[IloscOcenZPoprzedniegoKwartalu]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
+            "name": "IloscOcenZPoprzKwartaluDoQTD",
+            "expression": "[IloscOcenZPoprzKwartalu]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
           },
           {
-            "name": "WynikIlosciOcenWAktualnymKwartale",
-            "expression": "IF([IloscOcenZPoprzedniegoKwartaluDoQTD]<>0,([iloscOcenAktualnie]-[IloscOcenZPoprzedniegoKwartaluDoQTD])/[IloscOcenZPoprzedniegoKwartaluDoQTD],BLANK())",
+            "name": "WynikIlosciOcenWAktKwartale",
+            "expression": "IF([IloscOcenZPoprzKwartaluDoQTD]<>0,([iloscOcenAktualnie]-[IloscOcenZPoprzKwartaluDoQTD])/[IloscOcenZPoprzKwartaluDoQTD],BLANK())",
             "kpi": {
               "targetExpression": "1.1",
-              "statusGraphic": "Shapes",
               "statusExpression": [
-                "var x='FaktOdpowiedzi'[WynikIlosciOcenWAktualnymKwartale] return",
+                "var x='FaktOdpowiedzi'[WynikIlosciOcenWAktKwartale]/'FaktOdpowiedzi'[_WynikIlosciOcenWAktKwartale Goal] return",
                 "            if(ISBLANK(x),BLANK(),",
-                "                    If(x<1,-1,",
-                "\t                If(x<1.07,0,1)",
+                "                    If(x<0.33,-1,",
+                "\t                If(x<0.66,0,1)",
                 "                )",
                 "            )",
                 "            "
@@ -1669,7 +1668,7 @@
                 },
                 {
                   "name": "KpiThresholdType",
-                  "value": "Absolute"
+                  "value": "Percentage"
                 },
                 {
                   "name": "KpiThresholdOrdering",
@@ -1681,17 +1680,17 @@
                 },
                 {
                   "name": "KpiThreshold_0",
-                  "value": "1"
+                  "value": "33"
                 },
                 {
                   "name": "KpiThreshold_1",
-                  "value": "1.07"
+                  "value": "66"
                 }
               ]
             }
           },
           {
-            "name": "SredniaOcenZPoprzedniegoKwartalu",
+            "name": "SredniaOcenZPoprzKwartalu",
             "expression": "CALCULATE([SredniaOcen],PREVIOUSQUARTER('DimCzas'[DataFullName]))"
           },
           {
@@ -1699,20 +1698,19 @@
             "expression": "TOTALQTD([SredniaOcen],'DimCzas'[DataFullName])"
           },
           {
-            "name": "SredniaOcenZPoprzedniegoKwartaluDoQTD",
-            "expression": "[SredniaOcenZPoprzedniegoKwartalu]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
+            "name": "SredniaOcenZPoprzKwartaluDoQTD",
+            "expression": "[SredniaOcenZPoprzKwartalu]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
           },
           {
-            "name": "WynikSredniaOcenWAktualnymKwartale",
-            "expression": "IF([SredniaOcenZPoprzedniegoKwartaluDoQTD]<>0,([SredniaOcenAktualnie]-[SredniaOcenZPoprzedniegoKwartaluDoQTD])/[SredniaOcenZPoprzedniegoKwartaluDoQTD],BLANK())",
+            "name": "WynikSredniaOcenWAktKwartale",
+            "expression": "IF([SredniaOcenZPoprzKwartaluDoQTD]<>0,([SredniaOcenAktualnie]-[SredniaOcenZPoprzKwartaluDoQTD])/[SredniaOcenZPoprzKwartaluDoQTD],BLANK())",
             "kpi": {
               "targetExpression": "1.1",
-              "statusGraphic": "Traffic Light - Single",
               "statusExpression": [
-                "var x='FaktOdpowiedzi'[WynikSredniaOcenWAktualnymKwartale] return",
+                "var x='FaktOdpowiedzi'[WynikSredniaOcenWAktKwartale]/'FaktOdpowiedzi'[_WynikSredniaOcenWAktKwartale Goal] return",
                 "            if(ISBLANK(x),BLANK(),",
-                "                    If(x<1,-1,",
-                "\t                If(x<1.07,0,1)",
+                "                    If(x<0.33,-1,",
+                "\t                If(x<0.66,0,1)",
                 "                )",
                 "            )",
                 "            "
@@ -1728,7 +1726,7 @@
                 },
                 {
                   "name": "KpiThresholdType",
-                  "value": "Absolute"
+                  "value": "Percentage"
                 },
                 {
                   "name": "KpiThresholdOrdering",
@@ -1740,11 +1738,11 @@
                 },
                 {
                   "name": "KpiThreshold_0",
-                  "value": "1"
+                  "value": "33"
                 },
                 {
                   "name": "KpiThreshold_1",
-                  "value": "1.07"
+                  "value": "66"
                 }
               ]
             }
@@ -1823,7 +1821,7 @@
             "expression": "SUM(FaktSprzedazBiletu[Cena])"
           },
           {
-            "name": "SumaCenBiletowZPoprzedniegoKwartalu",
+            "name": "SumaCenBiletowZPoprzKwartalu",
             "expression": "CALCULATE([SumaCenBiletow],PREVIOUSQUARTER('DimCzas'[DataFullName]))"
           },
           {
@@ -1831,20 +1829,19 @@
             "expression": "TOTALQTD([SumaCenBiletow],'DimCzas'[DataFullName])"
           },
           {
-            "name": "SumaCenBiletowZPoprzedniegoKwartaluDoQTD",
-            "expression": "[SumaCenBiletowZPoprzedniegoKwartalu]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
+            "name": "SumaCenBiletowZPoprzKwartaluDoQTD",
+            "expression": "[SumaCenBiletowZPoprzKwartalu]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
           },
           {
-            "name": "WynikiSumyCenBiletowWAktualnymKwartale",
-            "expression": "IF([SumaCenBiletowZPoprzedniegoKwartaluDoQTD]<>0,([SumaCenBiletowAktualnie]-[SumaCenBiletowZPoprzedniegoKwartaluDoQTD])/[SumaCenBiletowZPoprzedniegoKwartaluDoQTD],BLANK())",
+            "name": "WynikiSumyCenBiletowWAktKwartale",
+            "expression": "IF([SumaCenBiletowZPoprzKwartaluDoQTD]<>0,([SumaCenBiletowAktualnie]-[SumaCenBiletowZPoprzKwartaluDoQTD])/[SumaCenBiletowZPoprzKwartaluDoQTD],BLANK())",
             "kpi": {
               "targetExpression": "1.1",
-              "statusGraphic": "Shapes",
               "statusExpression": [
-                "var x='FaktSprzedazBiletu'[WynikiSumyCenBiletowWAktualnymKwartale] return",
+                "var x='FaktSprzedazBiletu'[WynikiSumyCenBiletowWAktKwartale]/'FaktSprzedazBiletu'[_WynikiSumyCenBiletowWAktKwartale Goal] return",
                 "            if(ISBLANK(x),BLANK(),",
-                "                    If(x<1,-1,",
-                "\t                If(x<1.07,0,1)",
+                "                    If(x<0.33,-1,",
+                "\t                If(x<0.66,0,1)",
                 "                )",
                 "            )",
                 "            "
@@ -1860,7 +1857,7 @@
                 },
                 {
                   "name": "KpiThresholdType",
-                  "value": "Absolute"
+                  "value": "Percentage"
                 },
                 {
                   "name": "KpiThresholdOrdering",
@@ -1872,11 +1869,11 @@
                 },
                 {
                   "name": "KpiThreshold_0",
-                  "value": "1"
+                  "value": "33"
                 },
                 {
                   "name": "KpiThreshold_1",
-                  "value": "1.07"
+                  "value": "66"
                 }
               ]
             }
@@ -1951,32 +1948,31 @@
         ],
         "measures": [
           {
-            "name": "SumaWykorszystaniaAtrakcji",
+            "name": "SumaWykorzAtrakcji",
             "expression": " SUM(FaktWykorzystanieAtrakcji[IloscWystapien])"
           },
           {
-            "name": "SumaWykorzystaniaAtrakcjiWPoprzednimKwartale",
-            "expression": "CALCULATE([SumaWykorszystaniaAtrakcji],PREVIOUSQUARTER('DimCzas'[DataFullName]))"
+            "name": "SumaWykorzAtrakcjiWPoprzKwartale",
+            "expression": "CALCULATE([SumaWykorzAtrakcji],PREVIOUSQUARTER('DimCzas'[DataFullName]))"
           },
           {
-            "name": "SumaWykorzystaniaAtrakcjiAktualnie",
-            "expression": "TOTALQTD([SumaWykorszystaniaAtrakcji],'DimCzas'[DataFullName])"
+            "name": "SumaWykorzAtrakcjiAktualnie",
+            "expression": "TOTALQTD([SumaWykorzAtrakcji],'DimCzas'[DataFullName])"
           },
           {
-            "name": "SumaWykorzystaniaAtrakcjiWoprzednimKwartaleDoQTD",
-            "expression": "[SumaWykorzystaniaAtrakcjiWPoprzednimKwartale]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
+            "name": "SumaWykorzAtrakcjiWPoprzKwartaleDoQTD",
+            "expression": "[SumaWykorzAtrakcjiWPoprzKwartale]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])"
           },
           {
-            "name": "WynikiWykorzystaniaAtrakcjiWAktualnymKwartale",
-            "expression": "IF([SumaWykorzystaniaAtrakcjiWoprzednimKwartaleDoQTD]<>0,([SumaWykorzystaniaAtrakcjiAktualnie]-[SumaWykorzystaniaAtrakcjiWoprzednimKwartaleDoQTD])/[SumaWykorzystaniaAtrakcjiWoprzednimKwartaleDoQTD],BLANK())",
+            "name": "WynikiWykorzAtrakcjiWAktKwartale",
+            "expression": "IF([SumaWykorzAtrakcjiWPoprzKwartaleDoQTD]<>0,([SumaWykorzAtrakcjiAktualnie]-[SumaWykorzAtrakcjiWPoprzKwartaleDoQTD])/[SumaWykorzAtrakcjiWPoprzKwartaleDoQTD],BLANK())",
             "kpi": {
               "targetExpression": "1.1",
-              "statusGraphic": "Shapes",
               "statusExpression": [
-                "var x='FaktWykorzystanieAtrakcji'[WynikiWykorzystaniaAtrakcjiWAktualnymKwartale] return",
+                "var x='FaktWykorzystanieAtrakcji'[WynikiWykorzAtrakcjiWAktKwartale]/'FaktWykorzystanieAtrakcji'[_WynikiWykorzAtrakcjiWAktKwartale Goal] return",
                 "            if(ISBLANK(x),BLANK(),",
-                "                    If(x<1,-1,",
-                "\t                If(x<1.07,0,1)",
+                "                    If(x<0.33,-1,",
+                "\t                If(x<0.66,0,1)",
                 "                )",
                 "            )",
                 "            "
@@ -1992,7 +1988,7 @@
                 },
                 {
                   "name": "KpiThresholdType",
-                  "value": "Absolute"
+                  "value": "Percentage"
                 },
                 {
                   "name": "KpiThresholdOrdering",
@@ -2004,11 +2000,11 @@
                 },
                 {
                   "name": "KpiThreshold_0",
-                  "value": "1"
+                  "value": "33"
                 },
                 {
                   "name": "KpiThreshold_1",
-                  "value": "1.07"
+                  "value": "66"
                 }
               ]
             }
