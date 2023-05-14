@@ -1645,49 +1645,7 @@
           },
           {
             "name": "WynikIlosciOcenWAktKwartale",
-            "expression": "IF([IloscOcenZPoprzKwartaluDoQTD]<>0,([iloscOcenAktualnie]-[IloscOcenZPoprzKwartaluDoQTD])/[IloscOcenZPoprzKwartaluDoQTD],BLANK())",
-            "kpi": {
-              "targetExpression": "1.1",
-              "statusExpression": [
-                "var x='FaktOdpowiedzi'[WynikIlosciOcenWAktKwartale]/'FaktOdpowiedzi'[_WynikIlosciOcenWAktKwartale Goal] return",
-                "            if(ISBLANK(x),BLANK(),",
-                "                    If(x<0.33,-1,",
-                "\t                If(x<0.66,0,1)",
-                "                )",
-                "            )",
-                "            "
-              ],
-              "annotations": [
-                {
-                  "name": "GoalType",
-                  "value": "StaticValue"
-                },
-                {
-                  "name": "KpiStatusType",
-                  "value": "Linear"
-                },
-                {
-                  "name": "KpiThresholdType",
-                  "value": "Percentage"
-                },
-                {
-                  "name": "KpiThresholdOrdering",
-                  "value": "Ascending"
-                },
-                {
-                  "name": "KpiThresholdCount",
-                  "value": "2"
-                },
-                {
-                  "name": "KpiThreshold_0",
-                  "value": "33"
-                },
-                {
-                  "name": "KpiThreshold_1",
-                  "value": "66"
-                }
-              ]
-            }
+            "expression": "IF([IloscOcenZPoprzKwartaluDoQTD]<>0,([iloscOcenAktualnie]-[IloscOcenZPoprzKwartaluDoQTD])/[IloscOcenZPoprzKwartaluDoQTD],BLANK())"
           },
           {
             "name": "SredniaOcenZPoprzKwartalu",
@@ -1703,49 +1661,7 @@
           },
           {
             "name": "WynikSredniaOcenWAktKwartale",
-            "expression": "IF([SredniaOcenZPoprzKwartaluDoQTD]<>0,([SredniaOcenAktualnie]-[SredniaOcenZPoprzKwartaluDoQTD])/[SredniaOcenZPoprzKwartaluDoQTD],BLANK())",
-            "kpi": {
-              "targetExpression": "1.1",
-              "statusExpression": [
-                "var x='FaktOdpowiedzi'[WynikSredniaOcenWAktKwartale]/'FaktOdpowiedzi'[_WynikSredniaOcenWAktKwartale Goal] return",
-                "            if(ISBLANK(x),BLANK(),",
-                "                    If(x<0.33,-1,",
-                "\t                If(x<0.66,0,1)",
-                "                )",
-                "            )",
-                "            "
-              ],
-              "annotations": [
-                {
-                  "name": "GoalType",
-                  "value": "StaticValue"
-                },
-                {
-                  "name": "KpiStatusType",
-                  "value": "Linear"
-                },
-                {
-                  "name": "KpiThresholdType",
-                  "value": "Percentage"
-                },
-                {
-                  "name": "KpiThresholdOrdering",
-                  "value": "Ascending"
-                },
-                {
-                  "name": "KpiThresholdCount",
-                  "value": "2"
-                },
-                {
-                  "name": "KpiThreshold_0",
-                  "value": "33"
-                },
-                {
-                  "name": "KpiThreshold_1",
-                  "value": "66"
-                }
-              ]
-            }
+            "expression": "IF([SredniaOcenZPoprzKwartaluDoQTD]<>0,([SredniaOcenAktualnie]-[SredniaOcenZPoprzKwartaluDoQTD])/[SredniaOcenZPoprzKwartaluDoQTD],BLANK())"
           }
         ],
         "annotations": [
@@ -1834,49 +1750,7 @@
           },
           {
             "name": "WynikiSumyCenBiletowWAktKwartale",
-            "expression": "IF([SumaCenBiletowZPoprzKwartaluDoQTD]<>0,([SumaCenBiletowAktualnie]-[SumaCenBiletowZPoprzKwartaluDoQTD])/[SumaCenBiletowZPoprzKwartaluDoQTD],BLANK())",
-            "kpi": {
-              "targetExpression": "1.1",
-              "statusExpression": [
-                "var x='FaktSprzedazBiletu'[WynikiSumyCenBiletowWAktKwartale]/'FaktSprzedazBiletu'[_WynikiSumyCenBiletowWAktKwartale Goal] return",
-                "            if(ISBLANK(x),BLANK(),",
-                "                    If(x<0.33,-1,",
-                "\t                If(x<0.66,0,1)",
-                "                )",
-                "            )",
-                "            "
-              ],
-              "annotations": [
-                {
-                  "name": "GoalType",
-                  "value": "StaticValue"
-                },
-                {
-                  "name": "KpiStatusType",
-                  "value": "Linear"
-                },
-                {
-                  "name": "KpiThresholdType",
-                  "value": "Percentage"
-                },
-                {
-                  "name": "KpiThresholdOrdering",
-                  "value": "Ascending"
-                },
-                {
-                  "name": "KpiThresholdCount",
-                  "value": "2"
-                },
-                {
-                  "name": "KpiThreshold_0",
-                  "value": "33"
-                },
-                {
-                  "name": "KpiThreshold_1",
-                  "value": "66"
-                }
-              ]
-            }
+            "expression": "IF([SumaCenBiletowZPoprzKwartaluDoQTD]<>0,([SumaCenBiletowAktualnie]-[SumaCenBiletowZPoprzKwartaluDoQTD])/[SumaCenBiletowZPoprzKwartaluDoQTD],BLANK())"
           }
         ],
         "annotations": [
@@ -1965,49 +1839,7 @@
           },
           {
             "name": "WynikiWykorzAtrakcjiWAktKwartale",
-            "expression": "IF([SumaWykorzAtrakcjiWPoprzKwartaleDoQTD]<>0,([SumaWykorzAtrakcjiAktualnie]-[SumaWykorzAtrakcjiWPoprzKwartaleDoQTD])/[SumaWykorzAtrakcjiWPoprzKwartaleDoQTD],BLANK())",
-            "kpi": {
-              "targetExpression": "1.1",
-              "statusExpression": [
-                "var x='FaktWykorzystanieAtrakcji'[WynikiWykorzAtrakcjiWAktKwartale]/'FaktWykorzystanieAtrakcji'[_WynikiWykorzAtrakcjiWAktKwartale Goal] return",
-                "            if(ISBLANK(x),BLANK(),",
-                "                    If(x<0.33,-1,",
-                "\t                If(x<0.66,0,1)",
-                "                )",
-                "            )",
-                "            "
-              ],
-              "annotations": [
-                {
-                  "name": "GoalType",
-                  "value": "StaticValue"
-                },
-                {
-                  "name": "KpiStatusType",
-                  "value": "Linear"
-                },
-                {
-                  "name": "KpiThresholdType",
-                  "value": "Percentage"
-                },
-                {
-                  "name": "KpiThresholdOrdering",
-                  "value": "Ascending"
-                },
-                {
-                  "name": "KpiThresholdCount",
-                  "value": "2"
-                },
-                {
-                  "name": "KpiThreshold_0",
-                  "value": "33"
-                },
-                {
-                  "name": "KpiThreshold_1",
-                  "value": "66"
-                }
-              ]
-            }
+            "expression": "IF([SumaWykorzAtrakcjiWPoprzKwartaleDoQTD]<>0,([SumaWykorzAtrakcjiAktualnie]-[SumaWykorzAtrakcjiWPoprzKwartaleDoQTD])/[SumaWykorzAtrakcjiWPoprzKwartaleDoQTD],BLANK())"
           }
         ],
         "annotations": [
